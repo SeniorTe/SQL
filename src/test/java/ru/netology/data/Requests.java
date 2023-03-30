@@ -15,9 +15,9 @@ public class Requests {
         try (
                 var conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/app", "app", "pass");
-                ) {
-                    var request = runner.query(conn, codeSQLFromSelectCode, new ScalarHandler<>());
-                    return (String) request;
+        ) {
+            var request = runner.query(conn, codeSQLFromSelectCode, new ScalarHandler<>());
+            return (String) request;
         }
     }
 
@@ -32,6 +32,7 @@ public class Requests {
             runner.update(conn, codeSQLFromInsertUser);
         }
     }
+
     @SneakyThrows
     public static void cleanDataBase() {
         var codes = "DELETE FROM auth_codes";
@@ -41,7 +42,7 @@ public class Requests {
         var runner = new QueryRunner();
         try (
                 var conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/app", "app", "pass");
+                        "jdbc:mysql://localhost:3306/app", "app", "pass");
         ) {
             runner.update(conn, codes);
             runner.update(conn, cardTransaction);

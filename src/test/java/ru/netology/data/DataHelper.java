@@ -6,6 +6,7 @@ import lombok.Value;
 public class DataHelper {
     private DataHelper() {
     }
+
     @Value
     public static class UserInfo {
         private String login;
